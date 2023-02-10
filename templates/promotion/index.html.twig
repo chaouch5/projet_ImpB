@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Gestion des promotions{% endblock %}
+
+{% block body %}
+
+
+
+
+
+ <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+             <nav class="navbar navbar-light bg-light">
+        
+
+    </nav>
+    
+ 
+  
+ 
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Liste des promotions</li>
+
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              
+              <!-- /.card-header -->
+              <div class="card-body">
+                <a class="btn btn-success" href="{{ path('app_promo_new') }}">Créer une nouvelle promotion</a>
+                       <br><br>
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                   <th>Photo de promotion</th>
+                    <th>Action</th>
+                    
+                  
+
+                  </tr>
+                  </thead>
+                   {% for a in promos %}
+                  <tbody>
+                  <tr>
+                     <td><img src="{{asset('/adminAssets/img/')~ a.photo  }}"
+                                         alt="" style="width: 80px; height: 80px"></td>
+        
+        
+                   <td>
+                    <a href=" {{ path('app_promo_delete', {'id': a.id}) }}" class="btn btn-outline-danger">Supprimer</a>
+                                  
+           
+                  </tr>
+                 
+                  </tbody>
+                  {% endfor %}
+                </table>
+                
+
+              </div>
+
+          
+
+              <!-- /.card-body --><section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+            </div>
+            <!-- /.card -->
+
+          {% endblock %}
+
+

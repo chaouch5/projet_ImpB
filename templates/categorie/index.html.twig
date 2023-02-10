@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Gestion des categories{% endblock %}
+
+{% block body %}
+
+
+
+
+
+ <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+             <nav class="navbar navbar-light bg-light">
+        
+
+    </nav>
+    
+ 
+  
+ 
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Liste des catégories</li>
+
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              
+              <!-- /.card-header -->
+              <div class="card-body">
+                <a class="btn btn-success" href="{{ path('addCat') }}">Créer une nouvelle catégorie</a>
+                       <br><br>
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                   <th>Nom de catégorie</th>
+                    <th>Action</th>
+                    
+                  
+
+                  </tr>
+                  </thead>
+                   {% for a in cats %}
+                  <tbody>
+                  <tr>
+                    <td>{{ a.nomC }}</td>
+        
+        
+                   <td><a href="{{ path('app_edit_cat', {'id': a.id}) }}" class="btn btn-outline-warning">Modifier</a>
+                    <a href="{{ path('delete_categorie', {'id': a.id}) }}" class="btn btn-outline-danger">Supprimer</a>
+                                  
+
+
+                  </tr>
+                 
+                  </tbody>
+                  {% endfor %}
+                </table>
+                
+
+              </div>
+
+          
+
+              <!-- /.card-body --><section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+            </div>
+            <!-- /.card -->
+
+          {% endblock %}
+
+

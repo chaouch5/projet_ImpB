@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter une promotion{% endblock %}
+
+
+{% block body %}
+
+<div style="position : absolute;margin-left:17%;width:83%; height: auto;">  <!-- jquery validation -->
+    <!-- jquery validation -->
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Ajouter une promotion</h3>
+            {{ form_start(form,{attr:{novalidate:'novalidate'}}) }}
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+     <form id="quickForm" novalidate="novalidate">
+            <div class="card-body">
+
+            
+
+                <label for="inputText" class="col-sm-4 col-form-label">Photo</label>
+                <div class="col-sm-6">
+                    {{ form_widget(form.photo,{'attr':{'class':'form-control'}}) }}
+                  
+                </div>
+
+            </div>
+
+            <div class="card-footer">
+                {{ form_widget(form.Ajouter,{'attr':{'class':'btn btn-primary'}}) }}
+                 <input class="btn btn-secondary" type = "button" value = "Retour!"  onclick = "history.back()">
+            </div>
+            {{ form_end(form) }}
+        </form>
+    </div>
+    <!-- /.card -->
+</div>
+
+{% endblock %}

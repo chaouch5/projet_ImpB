@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Gestion des FeedBacks{% endblock %}
+
+{% block body %}
+
+
+
+
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <nav class="navbar navbar-light bg-light">
+
+
+                    </nav>
+
+
+
+
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Liste des Reclamation</li>
+
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+
+                        <!-- /.card-header -->
+
+                            <br><br>
+                            <table id="example2" class="table table-bordered table-hover">
+                                <thead>
+                                <tr>
+                                    <th>nom</th>
+                                    <th>email</th>
+                                    <th>message</th>
+                                    <th>date message </th>
+                                    <th>Action </th>
+
+
+
+
+                                </tr>
+                                </thead>
+                                {% for a in FeedBack %}
+                                    <tbody>
+                                    <tr>
+                                        <td>{{ a.nom }}</td>
+                                        <td>{{ a.email }}</td>
+                                        <td>{{ a.feedback }}</td>
+                                        <td>{{ a.Date|date("Y-m-d H:i:s")}}</td>
+                                        <td><a href="{{ path('suppFeedback', {'id': a.id}) }}" class="btn btn-outline-danger">Supprimer</a></td>
+
+
+                                    </tr>
+
+                                    </tbody>
+                                {% endfor %}
+                            </table>
+
+
+                        </div>
+
+
+
+                        <!-- /.card-body --><section class="content">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card">
+                                        </div>
+                                        <!-- /.card -->
+
+                                        {% endblock %}
+
+

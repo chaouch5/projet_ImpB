@@ -1,0 +1,119 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Gestion Produit{% endblock %}
+
+{% block body %}
+
+
+
+
+
+ <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+             <nav class="navbar navbar-light bg-light">
+        
+
+    </nav>
+    
+ 
+  
+ 
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Liste des produits</li>
+
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              
+              <!-- /.card-header -->
+              <div class="card-body">
+                <a class="btn btn-success" href="{{ path('app_produit_new') }}">Créer un nouveau produit</a>
+                <br><br>
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                      <th>référence</th>
+                    <th>Nom</th>
+                    <th>Prix</th>
+                    <th>Description</th>
+                      <th>fiche</th>
+                     <th>Categorie</th>
+                    <th>Photo</th>
+                     <th>Action</th>
+                  
+
+                  </tr>
+                  </thead>
+                    <div align="Right">
+                        {{ form_start(formsearch,{'attr': {'novalidate': 'novalidate'}} ) }}
+                        {{ form_widget(formsearch.nom,{'class':'form-control'},)}}
+                        {{ form_widget(formsearch.Search, {'attr': {'placeholder': 'REGISTER','class':'btn btn-primary' }})}}
+                        {{ form_end(formsearch) }}
+                    </div>
+                    <br>
+                   {% for produit in produits %}
+                  <tbody>
+                  <tr>
+                      <td>{{ produit.ref}}</td>
+                   <td>{{ produit.nom}}</td>
+                   <td>{{ produit.Prix}}</td>
+                   <td>{{ produit.Description}}</td>
+                      <td>{{ produit.fiche}}</td>
+                     <td>{{ produit.categorie.nomC}}</td>
+                   <td><img src="{{asset('/adminAssets/img/')~ produit.photo  }}"
+                                         alt="" style="width: 80px; height: 80px"></td>
+                             
+           
+                  
+                  </td>
+                   <td><a href="{{ path('app_produit_edit', {'id': produit.id}) }}" class="btn btn-outline-warning">Modifier</a>
+                    <a href="{{ path('app_produit_delete', {'id': produit.id}) }}" class="btn btn-outline-danger">Supprimer</a>
+                                  
+
+
+                  </tr>
+                 
+                  </tbody>
+                  {% endfor %}
+                </table>
+                
+
+              </div>
+
+          
+
+              <!-- /.card-body --><section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+            </div>
+            <!-- /.card -->
+
+          
+
+
+
+
+
+{% endblock %}
+
+
